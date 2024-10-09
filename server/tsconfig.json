@@ -9,7 +9,11 @@
         "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "baseUrl": "./",
+        "paths": {
+        "@ei/common": ["../../common/src"]
+    }
     },
     "watchOptions": {
         "watchFile": "useFsEvents",
