@@ -17,8 +17,8 @@
     "lint-client": "npm run lint-client-fast && npm run eslint-client",
     "fast-lint": "npm run lint-server-fast && npm run lint-client-fast",
     "lint": "npm run lint-server && npm run lint-client",
-    "watch": "./node_modules/.bin/tsc-watch -p client --noClear",
-   // "postinstall": "cd common && npm ci"
+    "watch": "tsc-watch -p client --noClear",
+    "postinstall": "cd common && npm ci"
   },
   "repository": {
     "type": "git",
@@ -75,5 +75,8 @@
     "typescript": "4.9.5",
     "webpack": "5.95.0",
     "webpack-cli": "5.1.4"
-  }
+  },
+  "main": "webpack.config.js",
+  "author": "",
+  "license": "ISC"
 }
