@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <div id="inferencing-in-progress" class="row mt-4" style="display: none">
+      <div id="inferencing-in-progress" class="row mt-4" style="display: none">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-body pb-0" id="inferencing-public-project-hint" style="display: none;">
@@ -100,13 +100,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body text-center mt-5 mb-4" id="inferencing-sampling-body">
+              <!--        <div class="card-body text-center mt-5 mb-4" id="inferencing-sampling-body">
                         <div class="col text-center">
                             <div class="sampling-circle"></div>
                             <div class="sampling-seconds-left text-gray" id="inferencing-time-left">2s</div>
                         </div>
                     </div>
-                    <div id="capture-camera" class="card-body text-center mb-0 py-0" style="display: none;">
+                   <div id="capture-camera" class="card-body text-center mb-0 py-0" style="display: none;">
                         <div class="card-body text-center">
                             <div class="capture-camera-inner">
                                 <video playsinline autoplay></video>
@@ -116,7 +116,22 @@
                         <div class="card-body text-center mb-0 pt-0 pb-2">
                             <button type="button" class="btn btn-lg pl-4 pr-4 btn-primary" id="capture-camera-button"><i class="fa fa-camera mr-2"></i>Classify</button>
                         </div>
+                    </div>-->
+
+                    <div id="upload-frame" class="card-body text-center mb-0 py-0">
+                        <div class="card-body text-center">
+                            <div class="upload-frame-inner">
+                                <input type="file" id="frame-upload-input" accept="image/*" class="form-control-file">
+                                <img id="frame-preview" src="" alt="Frame Preview" class="img-fluid" style="max-height: 300px; display: none;">
+                            </div>
+                        </div>
+                        <div class="card-body text-center mb-0 pt-0 pb-2">
+                            <button type="button" class="btn btn-lg pl-4 pr-4 btn-primary" id="classify-frame-button">
+                                <i class="fa fa-upload mr-2"></i>Classify Frame
+                            </button>
+                        </div>
                     </div>
+                    
                     <div id="inference-recording-message-body" class="card-body text-center pb-0 pt-0">
                         <h2 id="inferencing-recording-data-message">Recording data</h2>
                     </div>

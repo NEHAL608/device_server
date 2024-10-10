@@ -43,7 +43,7 @@ export class CSPMiddleware {
         let req = _req as NonceRequest;
 
         let csp = `default-src 'self' blob: edgeimpulse.com *.edgeimpulse.com; `;
-        let wsProtocols = `wss: ws:`;
+        let wsProtocols = `wss: ws: wss://remote-mgmt.edgeimpulse.com`;
         if (appConfig.domain && appConfig.csp) {
             wsProtocols = `wss://studio.${appConfig.domain} wss://remote-mgmt.${appConfig.domain}`;
         }
@@ -51,7 +51,7 @@ export class CSPMiddleware {
         csp += `img-src 'self' 'unsafe-inline' edgeimpulse.com *.edgeimpulse.com www.google-analytics.com www.googletagmanager.com data: ${userCdnPrefix}; `;
         csp += "media-src 'self' edgeimpulse.com *.edgeimpulse.com blob: data: mediastream:; ";
         csp += `script-src 'self' ${unsafeEval ? "'unsafe-eval' " : ""} 'nonce-${req.nonce}' edgeimpulse.com *.edgeimpulse.com *.hsforms.net *.hsforms.com www.google-analytics.com fonts.googleapis.com youtube.com *.youtube.com browser.sentry-cdn.com js.sentry-cdn.com *.sentry.io www.googletagmanager.com d3js.org blob:; `;
-        csp += `connect-src 'self' edgeimpulse.com *.edgeimpulse.com www.google-analytics.com *.hsforms.net *.hsforms.com *.amazonaws.com *.googleapis.com fonts.googleapis.com sentry.io *.sentry.io youtube.com *.youtube.com *.doubleclick.net localhost:${studioPort} localhost:${ingestionPort} localhost:${remoteMgmtPort} host.docker.internal:${studioPort} host.docker.internal:${ingestionPort} host.docker.internal:${remoteMgmtPort} data: ${wsProtocols}; `;
+        csp += `connect-src 'self' edgeimpulse.com *.edgeimpulse.com www.google-analytics.com *.hsforms.net *.hsforms.com *.amazonaws.com *.googleapis.com fonts.googleapis.com sentry.io *.sentry.io youtube.com *.youtube.com *.doubleclick.net localhost:${studioPort} localhost:${ingestionPort} localhost:${remoteMgmtPort} host.docker.internal:${studioPort} host.docker.internal:${ingestionPort} host.docker.internal:${remoteMgmtPort} data: wss://remote-mgmt.edgeimpulse.com ${wsProtocols}; `;
         csp += "style-src 'self' 'unsafe-inline' edgeimpulse.com *.edgeimpulse.com fonts.googleapis.com; ";
         csp += "base-uri 'self' edgeimpulse.com *.edgeimpulse.com; ";
         csp += "frame-ancestors 'self' edgeimpulse.com *.edgeimpulse.com mltools.arduino.cc mltools.oniudra.cc skillbuilder.optra.com skillbuilder.optraportal.com; ";
