@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "set NODE_ENV=development && tsc-watch -b server --onSuccess \"node --trace-warnings build/server/start.js\" --noClear && tsc-watch -p client --noClear",
-    "start-production": "node --trace-warnings  build/server/start.js",
+    "start-production": "node --trace-warnings  build/server/start.js && ngrok http http://localhost:4820",
     "build": "tsc -p client && tsc -b server",
     "build-client": "tsc -p client",
     "build-server": "tsc -b server",
@@ -18,7 +18,7 @@
     "fast-lint": "npm run lint-server-fast && npm run lint-client-fast",
     "lint": "npm run lint-server && npm run lint-client",
     "watch": "./node_modules/.bin/tsc-watch -p client --noClear",
-    "postinstall": "cd ../common && npm ci"
+   // "postinstall": "cd common && npm ci"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/brianweet/edge-impulse-example-browser-device#readme",
   "dependencies": {
-    "@ei/common": "file:../common",
+    "@ei/common": "file:common",
     "@sentry/node": "5.30.0",
     "compression": "1.7.4",
     "cookie": "0.7.2",
